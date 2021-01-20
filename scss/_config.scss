@@ -7,7 +7,7 @@ $max-width: 1100px;
 
 // Set text color based on background
 @function set-text-color($color) {
-    @if (lightness($color) > 50) {
+    @if (lightness($color) > 60) {
         @return #333333;
     } @else {
         @return #ffffff;
@@ -18,4 +18,29 @@ $max-width: 1100px;
 @mixin set-background($color) {
     background-color: $color;
     color: set-text-color($color);
+}
+
+// Margin and Padding
+$spaceAmounts : (1,2,3,4,5,6,7);
+
+@each $space in $spaceAmounts {
+    // All about margin
+    .m-#{$space}{
+        margin: #{$space}rem; 
+    }
+
+    // Vertical Margin
+    .my-#{$space}{
+        margin: #{$space}rem 0;
+    }
+
+     // All about padding
+    .p-#{$space}{
+        padding: #{$space}rem; 
+    }
+
+    // Vertical Padding
+    .py-#{$space}{
+        padding: #{$space}rem 0;
+    }
 }
